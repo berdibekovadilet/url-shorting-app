@@ -13,13 +13,15 @@
       background-color: white;
       color: rgb(54, 48, 48);
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       border-radius: 16px;
 
-      p {
+      span {
          font-weight: 600;
          font-size: 14px;
+         margin: 16px 0;
       }
 
       .newlink {
@@ -50,8 +52,8 @@
       // height: 25vh !important;
       flex-direction: column;
 
-      p {
-         margin-bottom: 16px;
+      span {
+         margin: 0 0 16px !important;
       }
    }
 }

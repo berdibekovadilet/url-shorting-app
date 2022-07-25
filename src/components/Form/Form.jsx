@@ -1,18 +1,24 @@
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { createShortLink, selectLoading } from "../../store/slice/linkSlice";
 import styles from "./Form.module.scss";
 
 const Form = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
-    // reset,
+    reset,
   } = useForm({
     mode: "onSubmit",
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = ({ Url }) => {
+    dispatch(createShortLink(Url));
+    reset();
   };
 
   return (
@@ -22,6 +28,7 @@ const Form = () => {
         tabIndex="0"
         autoComplete="off"
         onSubmit={handleSubmit(onSubmit)}
+        disabled={loading === "loading"}
       >
         <input
           type="url"
@@ -36,7 +43,9 @@ const Form = () => {
           })}
         />
         {errors.Url && <div className={styles.error}>{errors.Url.message}</div>}
-        <button type="submit">Сократить</button>
+        <button type="submit" disabled={loading === "loading"}>
+          Сократить
+        </button>
       </form>
     </div>
   );
