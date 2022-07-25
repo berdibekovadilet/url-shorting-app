@@ -45,6 +45,11 @@
             background-color: #d9e6fe;
          }
       }
+
+      &[data-active="true"] button {
+         background-color: #0b73fe;
+         color: white;
+      }
    }
 }
 

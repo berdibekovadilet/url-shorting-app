@@ -1,10 +1,19 @@
-import styles from "./Result.module.scss";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectLinks } from "../../store/slice/linkSlice";
 import { motion, AnimatePresence } from "framer-motion";
+import styles from "./Result.module.scss";
 
 const Result = () => {
+  const [copiedLinks, setCopiedLink] = useState(null);
   const links = useSelector(selectLinks);
+
+  const copyToClipboard = (link) => {
+    navigator.clipboard.writeText(link).then(() => {
+      setCopiedLink(link);
+    });
+  };
+
   if (!links?.length) return null;
 
   return (
@@ -14,18 +23,17 @@ const Result = () => {
         <AnimatePresence key={item.code}>
           <motion.div
             className={styles.item}
-            initial={{
-              opacity: 0,
-              height: 0,
-            }}
-            animate={{
-              opacity: 1,
-              height: "auto",
-            }}
+            data-active={copiedLinks === item.full_short_link2}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
           >
             <span>{item.original_link}</span>
             <span className={styles.newlink}>{item.full_short_link2}</span>
-            <button>Скопировать</button>
+            <button onClick={() => copyToClipboard(item.full_short_link2)}>
+              {copiedLinks === item.full_short_link2
+                ? "Скопировано!"
+                : "Скопировать"}
+            </button>
           </motion.div>
         </AnimatePresence>
       ))}
