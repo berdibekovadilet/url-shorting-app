@@ -8,11 +8,11 @@
    }
 
    .wrapper {
-      width: 40vw;
-      height: 15vh;
+      width: 45vw;
+      // height: 15vh;
       padding: 16px;
       background-color: white;
-      color: #0b73fe;
+      color: rgb(54, 48, 48);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -20,6 +20,11 @@
 
       p {
          font-weight: 600;
+         font-size: 14px;
+      }
+
+      .newlink {
+         color: #0b73fe;
       }
 
       button {
@@ -42,6 +47,7 @@
 @media (max-width: 768px) {
    .wrapper {
       width: 85vw !important;
+      // height: 25vh !important;
       flex-direction: column;
 
       p {
