@@ -7,7 +7,7 @@
       margin-bottom: 8px;
    }
 
-   .wrapper {
+   .item {
       width: 45vw;
       padding: 16px;
       background-color: white;
@@ -17,6 +17,7 @@
       justify-content: space-between;
       align-items: center;
       border-radius: 16px;
+      margin-top: 16px;
 
       span {
          font-weight: 600;
@@ -47,9 +48,8 @@
 }
 
 @media (max-width: 768px) {
-   .wrapper {
+   .item {
       width: 85vw !important;
-      // height: 25vh !important;
       flex-direction: column;
 
       span {
