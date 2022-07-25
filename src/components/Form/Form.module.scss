@@ -1,0 +1,44 @@
+.container {
+   margin-top: 60px;
+   .input {
+      background-color: white;
+      border-radius: 8px;
+      width: 40vw;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+      padding-right: 8px;
+      transition: all 0.3s ease;
+      // border: 1px solid transparent;
+
+      input {
+         width: 100%;
+         height: 40px;
+         border: none;
+         outline: none;
+         transition: all 0.3s ease;
+      }
+
+      button {
+         display: inline-block;
+         width: 111px;
+         height: 40px;
+         background-color: #fe6f32;
+         color: white;
+         border: none;
+         border-radius: 8px;
+         transition: all 0.3s ease;
+
+         &:hover {
+            background-color: #eb662d;
+         }
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .input {
+      width: 85vw !important;
+   }
+}
