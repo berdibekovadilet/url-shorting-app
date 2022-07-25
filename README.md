@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# URL Shorting App
+# Live
+https://urlshorting.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Covers
+![cover](cover/1.png)
+![cover](cover/2.png)
 
 ## Available Scripts
 
